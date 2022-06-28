@@ -3,5 +3,5 @@ export interface Cube {
   y: number
   width: number
   height: number
-  t: number
+  value: number
 }
