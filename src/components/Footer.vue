@@ -1,15 +1,8 @@
 <template>
-  <nav text-xl mt-6 inline-flex gap-2>
-    <button icon-btn @click="toggleDark()">
-      <div dark:i-carbon-moon i-carbon-sun />
-    </button>
-
-    <a
-      icon-btn i-carbon-logo-github
-      rel="noreferrer"
-      href="https://github.com/antfu/vitesse-lite"
-      target="_blank"
-      title="GitHub"
-    />
-  </nav>
+  <div flex justify-center items-center text-gray-500 dark:text-gray-300 mt20 op50>
+    Made by
+    <a target="_blank" text-emerald-600 mx-5 href="https://github.com/YOYZHANG">YOYZHANG</a>
+    |
+    <a target="_blank" text-emerald-600 mx-5 href="https://github.com/YOYZHANG/tin">Source Code</a> .
+  </div>
 </template>
