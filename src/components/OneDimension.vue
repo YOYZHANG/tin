@@ -1,18 +1,21 @@
 <script setup lang="ts">
 import type { Cube } from '../type'
+
 const el = $ref<HTMLCanvasElement>()
 const ctx = $computed(() => el.getContext('2d')!)
-
 const WIDTH = 300
 const HEIGHT = 300
 
 const CUBENUM = 30
 const MARGIN = 3
+const DFAULT_VAL = 1
 
-const fn = (x: number, i: number, t: number) => {
-  const nt = t && t / 1000
-  return Math.sin(nt + x)
-}
+const fn = $computed(() => (x: number, i: number, t: number) => {
+  if (!inputStr.value)
+    return DFAULT_VAL
+
+  return getMathFn('x, i, t', inputStr.value)(x, i, t)
+})
 
 function init() {
   const cubes = Array.from({ length: CUBENUM }, (_, i) => {
@@ -37,7 +40,7 @@ function step(cubes: Cube[], time: number) {
 
   for (const [i, item] of cubes.entries()) {
     const { x, width } = item
-    const value = fn(i, i, time) * HEIGHT
+    const value = fn(i, i, time / 1000) * HEIGHT
     newCubes.push({
       x,
       y: (HEIGHT - Math.abs(value)) / 2,

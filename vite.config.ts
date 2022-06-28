@@ -47,6 +47,7 @@ export default defineConfig({
     Unocss({
       shortcuts: {
         'bg-canvas': 'bg-gray:15 dark:bg-truegray-800',
+        'icon-btn': 'op30 hover:op100',
       },
     }),
   ],
